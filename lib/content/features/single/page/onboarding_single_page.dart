@@ -53,6 +53,9 @@ class OnboardingSinglePage extends StatelessWidget {
   ///Use that one to display navigation buttons
   final bool showScrollNavigationButtons;
 
+  ///Use that one to choose whether local or network images
+  final bool useLocalImages;
+
   OnboardingSinglePage({
     super.key,
     this.welcomeText,
@@ -69,6 +72,7 @@ class OnboardingSinglePage extends StatelessWidget {
     this.textColor,
     this.navIconColor = Colors.white,
     this.showScrollNavigationButtons = true,
+    this.useLocalImages = false,
     this.onboardingTextFirst,
     this.onboardingImageFirst,
     this.onboardingTextSecond,
@@ -91,17 +95,17 @@ class OnboardingSinglePage extends StatelessWidget {
           Expanded(
             flex: 4,
             child: OnboardingSinglePageView(
-                roundedValue: roundedValue,
-                pageColor: pageColor,
-                textColor: textColor,
-                navIconColor: navIconColor,
-                onboardingTextFirst: onboardingTextFirst,
-                onboardingImageFirst: onboardingImageFirst,
-                onboardingTextSecond: onboardingTextSecond,
-                onboardingImageSecond: onboardingImageSecond,
-                onboardingTextThree: onboardingTextThree,
-                onboardingImageThree: onboardingImageThree,
-                showScrollNavigationButtons: showScrollNavigationButtons),
+                 roundedValue,
+                 textColor,
+                 navIconColor,
+                 onboardingTextFirst,
+                 onboardingImageFirst,
+                 onboardingTextSecond,
+                 onboardingImageSecond,
+                 onboardingTextThree,
+                 onboardingImageThree,
+                 useLocalImages,
+                 showScrollNavigationButtons),
           ),
 
           Divider(),
@@ -123,15 +127,15 @@ class OnboardingSinglePage extends StatelessWidget {
           Expanded(
             flex: 1,
             child: OnboardingSingleButtons(
-                roundedValue: roundedValue,
-                onboardingFirstButtonText: onboardingFirstButtonText,
-                firstButtonTextColor: firstButtonTextColor,
-                firstButtonBackgroundColor: firstButtonBackgroundColor,
-                onFirstButtonClick: onFirstButtonClick,
-                secondButtonTextColor: secondButtonTextColor,
-                secondButtonBorderColor: secondButtonBorderColor,
-                onboardingSecondButtonText: onboardingSecondButtonText,
-                onSecondButtonClick: onSecondButtonClick),
+                 roundedValue,
+                 onboardingFirstButtonText,
+                 firstButtonTextColor,
+                 firstButtonBackgroundColor,
+                 onFirstButtonClick,
+                 secondButtonTextColor,
+                 secondButtonBorderColor,
+                 onboardingSecondButtonText,
+                 onSecondButtonClick),
           )
         ],
       ),

@@ -4,39 +4,39 @@ class OnboardingSingleButtons extends StatelessWidget {
 
 
   ///Use these one to update border round value for images and buttons
-  final double roundedValue;
+  final double _roundedValue;
 
   ///Use these one to display buttons texts
-  final String? onboardingFirstButtonText;
-  final String? onboardingSecondButtonText;
+  final String? _onboardingFirstButtonText;
+  final String? _onboardingSecondButtonText;
 
   ///CallBack action when taping on first button
-  final VoidCallback onFirstButtonClick;
+  final VoidCallback _onFirstButtonClick;
   ///CallBack action when taping on second button
-  final VoidCallback onSecondButtonClick;
+  final VoidCallback _onSecondButtonClick;
 
 
   ///Use that one to set background color for first button
-  final Color? firstButtonBackgroundColor;
+  final Color? _firstButtonBackgroundColor;
   ///Use that one to set color for first button text
-  final Color? firstButtonTextColor;
+  final Color? _firstButtonTextColor;
   ///Use that one to set color for second button text
-  final Color? secondButtonTextColor;
+  final Color? _secondButtonTextColor;
   ///Use that one to set color for second button border
-  final Color? secondButtonBorderColor;
+  final Color? _secondButtonBorderColor;
 
 
-  const OnboardingSingleButtons({super.key,
-  required this.roundedValue,
-  required this.onboardingFirstButtonText,
-  required this.firstButtonTextColor,
-  required this.firstButtonBackgroundColor,
-  required this.onFirstButtonClick,
-  required this.secondButtonTextColor,
-  required this.secondButtonBorderColor,
-  required this.onboardingSecondButtonText,
-  required this.onSecondButtonClick,
-  });
+  const OnboardingSingleButtons(
+   this._roundedValue,
+   this._onboardingFirstButtonText,
+   this._firstButtonTextColor,
+   this._firstButtonBackgroundColor,
+   this._onFirstButtonClick,
+   this._secondButtonTextColor,
+   this._secondButtonBorderColor,
+   this._onboardingSecondButtonText,
+   this._onSecondButtonClick, {super.key}
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -51,37 +51,33 @@ class OnboardingSingleButtons extends StatelessWidget {
           SizedBox(
             width: MediaQuery.sizeOf(context).width,
             child: ElevatedButton(
-                onPressed: () {
-
-                },
+                onPressed: _onFirstButtonClick,
                 style: ElevatedButton.styleFrom(
+                  backgroundColor: _firstButtonBackgroundColor,
                   shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(roundedValue)),
+                      borderRadius: BorderRadius.circular(_roundedValue)),
                 ),
-                child: Text(onboardingFirstButtonText ?? "Lorem ipsum",
+                child: Text(_onboardingFirstButtonText ?? "Lorem ipsum",
                   style: TextStyle(
                     fontSize: 18,
-                    color: firstButtonTextColor ?? Color(0xff151E3D),
+                    color: _firstButtonTextColor ?? Color(0xff151E3D),
                   ),)
             ),
           ),
 
-
           SizedBox(
             width: MediaQuery.sizeOf(context).width,
             child: TextButton(
-                onPressed: () {
-
-                },
+                onPressed: _onSecondButtonClick,
                 style: TextButton.styleFrom(
                     shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(roundedValue)
+                        borderRadius: BorderRadius.circular(_roundedValue)
                     ),
-                    side: BorderSide(width: 1, color: Colors.white)),
-                child: Text(onboardingSecondButtonText ?? "Sit amet",
+                    side: BorderSide(width: 1, color: _secondButtonBorderColor ?? Colors.white)),
+                child: Text(_onboardingSecondButtonText ?? "Sit amet",
                   style: TextStyle(
                     fontSize: 18,
-                    color: secondButtonTextColor ?? Colors.white,
+                    color: _secondButtonTextColor ?? Colors.white,
                   ),)),
           )
         ],

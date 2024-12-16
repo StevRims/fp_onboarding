@@ -8,40 +8,41 @@ class OnboardingSinglePageView extends GetView<OnBoardingSingleController> {
 
 
   ///Use these one to update border round value for images and buttons
-  final double roundedValue;
+  final double _roundedValue;
 
-  ///Use that one to set color for the whole page
-  final Color? pageColor;
   ///Use that one to set color for the presentation texts
-  final Color? textColor;
+  final Color? _textColor;
   ///Use that one to set color for the navigation icons
-  final Color? navIconColor;
+  final Color? _navIconColor;
 
 
   ///Use these one to display presentation texts and images
-  final String? onboardingTextFirst;
-  final String? onboardingImageFirst;
-  final String? onboardingTextSecond;
-  final String? onboardingImageSecond;
-  final String? onboardingTextThree;
-  final String? onboardingImageThree;
+  final String? _onboardingTextFirst;
+  final String? _onboardingImageFirst;
+  final String? _onboardingTextSecond;
+  final String? _onboardingImageSecond;
+  final String? _onboardingTextThree;
+  final String? _onboardingImageThree;
 
   ///Use that one to display navigation buttons
-  final bool showScrollNavigationButtons;
+  final bool _showScrollNavigationButtons;
 
-  const OnboardingSinglePageView({super.key,
-  required this.roundedValue,
-  required this.pageColor,
-  required this.textColor,
-  required this.navIconColor,
-  required this.onboardingTextFirst,
-  required this.onboardingImageFirst,
-  required this.onboardingTextSecond,
-  required this.onboardingImageSecond,
-  required this.onboardingTextThree,
-  required this.onboardingImageThree,
-  required this.showScrollNavigationButtons,
-  });
+  ///Use that one to choose whether local or network images
+  final bool _useLocalImages;
+
+  const OnboardingSinglePageView(
+      this._roundedValue,
+      this._textColor,
+      this._navIconColor,
+      this._onboardingTextFirst,
+      this._onboardingImageFirst,
+      this._onboardingTextSecond,
+      this._onboardingImageSecond,
+      this._onboardingTextThree,
+      this._onboardingImageThree,
+      this._useLocalImages,
+      this._showScrollNavigationButtons,
+      {super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +56,7 @@ class OnboardingSinglePageView extends GetView<OnBoardingSingleController> {
           child: Stack(
             children: [
               PageView(
-                physics: showScrollNavigationButtons
+                physics: _showScrollNavigationButtons
                     ? NeverScrollableScrollPhysics()
                     : PageScrollPhysics(),
                 controller: controller.pageController,
@@ -70,9 +71,9 @@ class OnboardingSinglePageView extends GetView<OnBoardingSingleController> {
                         width: MediaQuery.sizeOf(context).width,
                         margin: EdgeInsets.all(10),
                         child: Text(
-                          onboardingTextFirst ?? lorem1,
+                          _onboardingTextFirst ?? lorem1,
                           style: TextStyle(
-                            color: textColor ?? Colors.white,
+                            color: _textColor ?? Colors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
                           ),
@@ -84,9 +85,11 @@ class OnboardingSinglePageView extends GetView<OnBoardingSingleController> {
                           width: MediaQuery.sizeOf(context).width * 0.8,
                           margin: EdgeInsets.all(10),
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(roundedValue),
+                            borderRadius: BorderRadius.circular(_roundedValue),
                             image: DecorationImage(
-                                image: NetworkImage( onboardingImageFirst ?? image1),
+                                image: _useLocalImages ?
+                                  AssetImage(_onboardingImageFirst!)
+                                : NetworkImage( _onboardingImageFirst ?? image1),
                                 fit: BoxFit.cover),
                           ),
                         ),
@@ -99,9 +102,9 @@ class OnboardingSinglePageView extends GetView<OnBoardingSingleController> {
                         width: MediaQuery.sizeOf(context).width,
                         margin: EdgeInsets.all(10),
                         child: Text(
-                          onboardingTextSecond ??  lorem2,
+                          _onboardingTextSecond ??  lorem2,
                           style: TextStyle(
-                            color: textColor ?? Colors.white,
+                            color: _textColor ?? Colors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
                           ),
@@ -113,9 +116,11 @@ class OnboardingSinglePageView extends GetView<OnBoardingSingleController> {
                           width: MediaQuery.sizeOf(context).width * 0.8,
                           margin: EdgeInsets.all(10),
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(roundedValue),
+                            borderRadius: BorderRadius.circular(_roundedValue),
                             image: DecorationImage(
-                                image: NetworkImage( onboardingImageSecond ?? image2),
+                                image: _useLocalImages ?
+                                AssetImage(_onboardingImageFirst!)
+                                    : NetworkImage( _onboardingImageSecond ?? image2),
                                 fit: BoxFit.cover),
                           ),
                         ),
@@ -128,9 +133,9 @@ class OnboardingSinglePageView extends GetView<OnBoardingSingleController> {
                         width: MediaQuery.sizeOf(context).width,
                         margin: EdgeInsets.all(10),
                         child: Text(
-                          onboardingTextThree ?? lorem3,
+                          _onboardingTextThree ?? lorem3,
                           style: TextStyle(
-                            color: textColor ?? Colors.white,
+                            color: _textColor ?? Colors.white,
                             fontWeight: FontWeight.bold,
                             fontSize: 18,
                           ),
@@ -142,9 +147,11 @@ class OnboardingSinglePageView extends GetView<OnBoardingSingleController> {
                           width: MediaQuery.sizeOf(context).width * 0.8,
                           margin: EdgeInsets.all(10),
                           decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(roundedValue),
+                            borderRadius: BorderRadius.circular(_roundedValue),
                             image: DecorationImage(
-                                image: NetworkImage(onboardingImageThree ?? image3),
+                                image: _useLocalImages ?
+                                AssetImage(_onboardingImageFirst!)
+                                    : NetworkImage(_onboardingImageThree ?? image3),
                                 fit: BoxFit.cover),
                           ),
                         ),
@@ -153,7 +160,7 @@ class OnboardingSinglePageView extends GetView<OnBoardingSingleController> {
                   ),
                 ],
               ),
-              showScrollNavigationButtons
+              _showScrollNavigationButtons
                   ? Positioned(
                 top: 0,
                 bottom: 0,
@@ -169,14 +176,14 @@ class OnboardingSinglePageView extends GetView<OnBoardingSingleController> {
                       child: Icon(
                         Icons.arrow_circle_left,
                         size: 48,
-                        color: navIconColor!.withValues(
+                        color: _navIconColor!.withValues(
                           alpha: 100,
                         ),
                       ),
                     )),
               )
                   : SizedBox.shrink(),
-              showScrollNavigationButtons
+              _showScrollNavigationButtons
                   ? Positioned(
                 top: 0,
                 bottom: 0,
@@ -193,7 +200,7 @@ class OnboardingSinglePageView extends GetView<OnBoardingSingleController> {
                       child: Icon(
                         Icons.arrow_circle_right,
                         size: 48,
-                        color: navIconColor!.withValues(
+                        color: _navIconColor!.withValues(
                           alpha: 100,
                         ),
                       ),
@@ -215,7 +222,7 @@ class OnboardingSinglePageView extends GetView<OnBoardingSingleController> {
               margin: EdgeInsets.all(3),
               decoration: BoxDecoration(
                 color: controller.currentPage.value == 0
-                    ? navIconColor
+                    ? _navIconColor
                     : Colors.grey,
                 shape: BoxShape.circle,
               ),
@@ -226,7 +233,7 @@ class OnboardingSinglePageView extends GetView<OnBoardingSingleController> {
               margin: EdgeInsets.all(3),
               decoration: BoxDecoration(
                 color: controller.currentPage.value == 1
-                    ? navIconColor
+                    ? _navIconColor
                     : Colors.grey,
                 shape: BoxShape.circle,
               ),
@@ -237,7 +244,7 @@ class OnboardingSinglePageView extends GetView<OnBoardingSingleController> {
               margin: EdgeInsets.all(3),
               decoration: BoxDecoration(
                 color: controller.currentPage.value == 2
-                    ? navIconColor
+                    ? _navIconColor
                     : Colors.grey,
                 shape: BoxShape.circle,
               ),
