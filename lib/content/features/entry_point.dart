@@ -30,14 +30,17 @@ class EntryPoint extends StatelessWidget {
   Widget build(BuildContext context) {
     return isSinglePage
         ? OnboardingSinglePage(
-
       onFirstButtonClick: singleFirstButtonOnClick,
       onSecondButtonClick: singleSecondButtonOnClick,
       roundedValue: 25,
       showScrollNavigationButtons: false,
     )
         : isThreePage
-        ? OnboardingThreePage()
+        ? OnboardingThreePage(
+      endButtonOnClick: (){
+
+      },
+    )
         : SizedBox.shrink();
   }
 }

@@ -119,7 +119,7 @@ class OnboardingSinglePageView extends GetView<OnBoardingSingleController> {
                             borderRadius: BorderRadius.circular(_roundedValue),
                             image: DecorationImage(
                                 image: _useLocalImages ?
-                                AssetImage(_onboardingImageFirst!)
+                                AssetImage(_onboardingImageSecond!)
                                     : NetworkImage( _onboardingImageSecond ?? image2),
                                 fit: BoxFit.cover),
                           ),
@@ -150,7 +150,7 @@ class OnboardingSinglePageView extends GetView<OnBoardingSingleController> {
                             borderRadius: BorderRadius.circular(_roundedValue),
                             image: DecorationImage(
                                 image: _useLocalImages ?
-                                AssetImage(_onboardingImageFirst!)
+                                AssetImage(_onboardingImageSecond!)
                                     : NetworkImage(_onboardingImageThree ?? image3),
                                 fit: BoxFit.cover),
                           ),
