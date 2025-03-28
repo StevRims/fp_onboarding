@@ -18,12 +18,16 @@ class EntryPoint extends StatelessWidget {
   ///Single page first button callback action
   final VoidCallback singleSecondButtonOnClick;
 
+  ///Single page button textStyle
+  final TextStyle singleButtonTextStyle;
+
 
   const EntryPoint({super.key,
     this.isSinglePage = true,
     this.isThreePage = false,
     required this.singleFirstButtonOnClick,
     required this.singleSecondButtonOnClick,
+    required this.singleButtonTextStyle
   });
 
   @override
@@ -32,6 +36,7 @@ class EntryPoint extends StatelessWidget {
         ? OnboardingSinglePage(
       onFirstButtonClick: singleFirstButtonOnClick,
       onSecondButtonClick: singleSecondButtonOnClick,
+      buttonsTextStyle: singleButtonTextStyle,
       roundedValue: 25,
       showScrollNavigationButtons: false,
     )

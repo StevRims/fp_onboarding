@@ -25,6 +25,9 @@ class OnboardingSingleButtons extends StatelessWidget {
   ///Use that one to set color for second button border
   final Color? _secondButtonBorderColor;
 
+  ///Use that one to set text style for all buttons
+  final TextStyle? _buttonsTextStyle;
+
 
   const OnboardingSingleButtons(
    this._roundedValue,
@@ -35,7 +38,10 @@ class OnboardingSingleButtons extends StatelessWidget {
    this._secondButtonTextColor,
    this._secondButtonBorderColor,
    this._onboardingSecondButtonText,
-   this._onSecondButtonClick, {super.key}
+   this._onSecondButtonClick,
+   this._buttonsTextStyle,
+
+      {super.key}
   );
 
   @override
@@ -53,6 +59,7 @@ class OnboardingSingleButtons extends StatelessWidget {
             child: ElevatedButton(
                 onPressed: _onFirstButtonClick,
                 style: ElevatedButton.styleFrom(
+                  textStyle: _buttonsTextStyle,
                   backgroundColor: _firstButtonBackgroundColor,
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(_roundedValue)),
@@ -70,6 +77,7 @@ class OnboardingSingleButtons extends StatelessWidget {
             child: TextButton(
                 onPressed: _onSecondButtonClick,
                 style: TextButton.styleFrom(
+                    textStyle: _buttonsTextStyle,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(_roundedValue)
                     ),

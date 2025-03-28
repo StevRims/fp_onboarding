@@ -16,6 +16,9 @@ class OnboardingSinglePage extends StatelessWidget {
   ///Use these one to update border round value for images and buttons
   final double roundedValue;
 
+  ///Use this one to update all buttons text style
+  final TextStyle buttonsTextStyle;
+
   ///Use these one to display buttons texts
   final String? onboardingFirstButtonText;
   final String? onboardingSecondButtonText;
@@ -79,6 +82,7 @@ class OnboardingSinglePage extends StatelessWidget {
     this.onboardingImageSecond,
     this.onboardingTextThree,
     this.onboardingImageThree,
+    required this.buttonsTextStyle
   });
 
   final OnBoardingSingleController controller =
@@ -135,7 +139,9 @@ class OnboardingSinglePage extends StatelessWidget {
                  secondButtonTextColor,
                  secondButtonBorderColor,
                  onboardingSecondButtonText,
-                 onSecondButtonClick),
+                 onSecondButtonClick,
+                 buttonsTextStyle
+            ),
           )
         ],
       ),
