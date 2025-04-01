@@ -4,13 +4,7 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c54e2218-1cb2-4f26-a533-48d040498a71" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/lib/content/features/entry_point.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/content/features/entry_point.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/content/features/single/page/onboarding_single_page.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/content/features/single/page/onboarding_single_page.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/content/features/single/widgets/onboarding_single_buttons.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/content/features/single/widgets/onboarding_single_buttons.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/content/features/single/widgets/onboarding_single_pageview.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/content/features/single/widgets/onboarding_single_pageview.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/onboardingrims.iml" beforeDir="false" afterPath="$PROJECT_DIR$/onboardingrims.iml" afterDir="false" />
-    </list>
+    <list default="true" id="c54e2218-1cb2-4f26-a533-48d040498a71" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

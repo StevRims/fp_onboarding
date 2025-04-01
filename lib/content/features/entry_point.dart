@@ -21,13 +21,17 @@ class EntryPoint extends StatelessWidget {
   ///Single page button textStyle
   final TextStyle singleButtonTextStyle;
 
+  ///Single page welcome textStyle
+  final TextStyle singleWelcomeTextStyle;
+
 
   const EntryPoint({super.key,
     this.isSinglePage = true,
     this.isThreePage = false,
     required this.singleFirstButtonOnClick,
     required this.singleSecondButtonOnClick,
-    required this.singleButtonTextStyle
+    required this.singleButtonTextStyle,
+    required this.singleWelcomeTextStyle,
   });
 
   @override
@@ -37,6 +41,7 @@ class EntryPoint extends StatelessWidget {
       onFirstButtonClick: singleFirstButtonOnClick,
       onSecondButtonClick: singleSecondButtonOnClick,
       buttonsTextStyle: singleButtonTextStyle,
+      welcomeTextStyle: singleButtonTextStyle,
       roundedValue: 25,
       showScrollNavigationButtons: false,
     )

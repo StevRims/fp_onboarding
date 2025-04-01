@@ -19,6 +19,10 @@ class OnboardingSinglePage extends StatelessWidget {
   ///Use this one to update all buttons text style
   final TextStyle buttonsTextStyle;
 
+
+  ///Use this one to update welcome text style
+  final TextStyle welcomeTextStyle;
+
   ///Use these one to display buttons texts
   final String? onboardingFirstButtonText;
   final String? onboardingSecondButtonText;
@@ -82,7 +86,8 @@ class OnboardingSinglePage extends StatelessWidget {
     this.onboardingImageSecond,
     this.onboardingTextThree,
     this.onboardingImageThree,
-    required this.buttonsTextStyle
+    required this.buttonsTextStyle,
+    required this.welcomeTextStyle,
   });
 
   final OnBoardingSingleController controller =
@@ -119,10 +124,7 @@ class OnboardingSinglePage extends StatelessWidget {
                 horizontal: MediaQuery.sizeOf(context).width * 0.09),
             width: MediaQuery.sizeOf(context).width,
             child: Text(welcomeText ?? lorem1,
-              style: TextStyle(
-              color: Colors.white,
-              fontSize: 24,
-            ), textAlign: TextAlign.center,),
+              style: welcomeTextStyle, textAlign: TextAlign.center,),
           ),
 
           SizedBox(height: 10,),
